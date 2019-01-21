@@ -1,0 +1,1120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Viga" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+
+<style>
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	overflow: hidden;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+body {
+	cursor: pointer;
+}
+p, a {
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none;
+}
+
+canvas {
+	position: absolute;
+}
+
+#title {
+	position: absolute;
+	z-index: 9;
+	top: 18%;
+	left: 15%;
+	opacity: 0;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+.showTitle {
+	-webkit-animation: locText 7s ease-in-out;
+	animation: locText 7s ease-in-out;
+}
+
+#title .text:nth-of-type(2) {
+	margin-top: 10px;
+}
+
+#title .text p {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	padding: 7px;
+
+	font-family: 'Quicksand', sans-serif;
+	letter-spacing: -3;
+	font-size: 60px;
+	text-transform: uppercase;
+	color: white;
+	font-style: italic;
+}
+
+.year {
+	position: absolute;
+	z-index: 9;
+	top: 18%;
+	left: 15%;
+	opacity: 0;
+	-webkit-transition: opacity 0.6s ease;
+	transition: opacity 0.6s ease;
+}
+
+.year p {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	padding: 7px;
+	font-family: 'Quicksand', sans-serif;
+	letter-spacing: -3;
+	font-size: 60px;
+	text-transform: uppercase;
+	color: white;
+	font-style: italic;
+}
+
+
+
+@keyframes locText {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes locText {
+	0% {
+		opacity: 0;
+	}
+	20% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+#campfire {
+	position: absolute;
+	z-index: 9;
+	top: 30%;
+	left: 0;
+	width: 100%;
+	opacity: 1;
+	text-align: center;
+}
+
+#campfire .text {
+	opacity: 0;
+	-webkit-transition: opacity 0.6s ease;
+	transition: opacity 0.6s ease;
+}
+
+#campfire .text p {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	padding: 7px;
+
+	font-family: 'Viga', sans-serif;
+	font-size: 50px;
+	text-transform: uppercase;
+	color: white;
+	font-style: italic;
+}
+
+#campfire .text:nth-of-type(2) {
+	margin-top: 10px;
+}
+
+.lake {
+	position: absolute;
+	z-index: 9;
+	top: 20%;
+	left: 15%;
+	width: 70%;
+	opacity: 1;
+	text-align: center;
+	opacity: 0;
+	-webkit-transition: opacity 2s ease;
+	transition: opacity 2s ease;
+}
+
+.lake p {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	padding: 7px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: white;
+	font-style: italic;
+	line-height: 30px;
+}
+
+
+#startMenu {
+	background: #a2cf6a;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 9999999;
+	-webkit-transition: opacity 2s ease;
+	transition: opacity 2s ease;
+}
+
+#instructions {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transition: opacity 0.2s ease;
+	transition: opacity 0.2s ease;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#instructions p, #instructions a {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: white;
+}
+
+#instructions p {
+	margin-bottom: 10px;
+}
+
+#instructions img {
+	display: block;
+	margin: auto;
+	width: 50px;
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+
+#instructions img:nth-of-type(2) {
+	width: 30px;
+}
+
+#begin {
+	display: inline-block;
+	background: rgba(0,0,0,0.4);
+	padding: 20px;
+	cursor: pointer;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas" style="background: #a2cf6a;"></canvas>
+
+<div id="startMenu">
+	<div id="instructions">
+		<img src="imgs/tutorial1.png">
+		<p>Drag horizontally across the screen to look around</p>
+		<img src="imgs/tutorial2.png">
+		<p>Click on the rings to interact with the environment</p>
+		<p>Click where you want the character to move.</p>
+		<p>Don't resize the screen after you start playing.</p>
+		<a id="begin">Play</a>
+	</div>
+</div>
+
+<div id="title">
+	<div class="text">
+		<p>Savannah, Georgia</p>
+	</div>
+
+	<div class="text">
+		<p>2009</p>
+	</div>
+</div>
+
+
+<div class="year">
+	<p>1927</p>
+</div>
+
+<div class="lake">
+	<p>My grandmother died at the edges of Savannah where she’d lived her entire life. I inherited her old house when my mother followed her about a decade ago, though I never visited the place until now.</p>
+</div>
+
+<div class="lake">
+	<p>Savannah’s October's heat is skin deep, its humid air shy and timid and not nearly as oppressive as I thought it would be.<br>As I rowed the boat, I felt some oneness with the universe, some strange comfort, like I was living every life that’s passed on the shores of this river.<br>And I thought of my grandmother<br>crossing this same river, over and over.</p>
+</div>
+
+<div class="lake">
+	<p>It was my first time there, but Savannah seemed like the kind of city that becomes a reference to all that follows. The spring of every other state becomes Savannah’s December’s change of mind, every wild life you’ll see is now a reminder of its pollinators and gazelles.
+	</p>
+</div>
+
+<div class="lake">
+	<p>The house was almost untouched. My mother never changed a thing. She said it was like a museum, a relic of older times.</p>
+</div>
+
+<div class="lake">
+	<p>The old, tired face imprinted in all my memories is that of my "grandmother." Seeing a young photo, I can only think of her as Elizabeth Clare. It never occurred to me, looking at her aging face in those thanks giving visits when I was a kid that she'd lived a life so vivid and complete, passed the very moments I'm passing, that she was once in her early twenties, her skin not yet yellow, her eyes not overtaken with jaunt. And that maybe she feared my same young'un fears.
+	</p>
+</div>
+
+<div class="lake">
+	<p>After all the visitors left, she'd fix herself one last solitary drink- Rye whiskey was often her poison of the night. She would sit on the wooden table, her silky thin hair and marble eyes illuminated by candles and an oil lamp, and she would write. She left myriads of notes. In some, she was too drunk to make sense. Others were arrestingly beautiful, like if words could reach and cradle you. It wasn’t an organized diary, nothing like that. Her memos didn't leave a structured trail of her chaotic life. Scattered on tiny pages and papers of books, she wrote down her random thoughts of the moment, her fears, epiphanies, verses of poems, violent opinions of the day.<br>She wrote hundreds of epitaphs.
+	</p>
+</div>
+
+<div class="lake">
+	<p>And in a way, our lives are like that. Our lives are not structured stories; we’re a stream of thoughts and wants and moments, and most of them don’t really connect.
+	</p>
+</div>
+
+<div class="lake">
+	<p>Timid and introvert are two words I would have never used to describe her.<br> How was a timid introvert who kept all her deeper thoughts for the paper so actively willing to open her house for strangers every day, to make her own kitchen a pub against the will of the state. Did she drink so much because that life drained her, or did she crave the company of others but only found the courage to seek it in fermented bottles?
+	</p>
+</div>
+
+<div class="lake">
+	<p>There were many stories about my grandmother, the source of her seemingly-infinite amount of beer. Like many others during the prohibition she home-brewed, but on occasion she also smuggled booze from the rum row boats to Savannah's locals.</p>
+</div>
+
+	<div class="lake">
+	<p>In the context of my grandmother’s life, drinking feels almost like a triumph, a stand against puritanical autocracy. It makes me wonder if drinking was disallowed, would I still feel as bad about my admittedly heavy drinking. In either case, when Cirrhosis took her life at age 52, it didn't care about the peculiarities of her habit.</p>
+</div>
+
+
+
+
+
+
+
+<script src="imgs/animations/guyCharAtlas.js"></script>
+<script src="imgs/animations/grandmaCharAtlas.js"></script>
+<script>
+//bugs:
+
+//full screen, push X's on scroll
+//scrolling past the limit
+//click animations//doesn't work with statemachine//only works once
+//statemachine/walk animation when scrolling
+
+//frames interpolate
+//pawn shaking solution zoom
+//target stops sometimes when dragging
+
+//time stamp
+var lastTime = Date.now();
+var delta;
+//set up canvas
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var sizeCanvas = function(){
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+}
+sizeCanvas();
+//load images
+var imgs = {
+	sky: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/1- background.jpg';
+		return img;
+	},
+	clouds: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/2- clouds2.png';
+		return img;
+	},
+	sun: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/3- sun2.png';
+		return img;
+	},
+	hills: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/4- hills2.png';
+		return img;
+	},
+	main: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/5- main2.png';
+		return img;
+	},
+	grass: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/grass.png';
+		return img;
+	},
+	boat: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/6- boat.png';
+		return img;
+	},
+	boatWithChar: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/boatWithChar.png';
+		return img;
+	},
+	bench: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/7- bench2.png';
+		return img;
+	},
+	frontTree: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/front tree.png';
+		return img;
+	},
+	fire: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/fire.png';
+		return img;
+	},
+	forefront: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/8- forefront.png';
+		return img;
+	},
+	forefront2: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/forefront2.png';
+		return img;
+	},
+	forefrontGrass: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/forefront_grass.png';
+		return img;
+	},
+	birds: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/9- birds.png';
+		return img;
+	},
+	sunReflection: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/10- sun reflection.png';
+		return img;
+	},
+	post1: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/1- overlay 73.png';
+		return img;
+	},
+	post2: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/2- overlay 45.png';
+		return img;
+	},
+	post3: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/3- overlay 100.png';
+		return img;
+	},
+	post4mist: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/mist - overlay 90.png';
+		return img;
+	},
+	guyChar: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/character.png';
+		return img;
+	},
+	grandmaChar: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/grandmaCharacter.png';
+		return img;
+	},
+	guyCharAtlas: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/animations/guyCharAtlas.png';
+		return img;
+	},
+	grandmaCharAtlas: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/animations/grandmaCharAtlas.png';
+		return img;
+	},
+	houseNew: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/room1.jpg';
+		return img;
+	},
+	houseOld: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/room2.jpg';
+		return img;
+	},
+	houseOld2: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/room3.jpg';
+		return img;
+	},
+	door: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/door.png';
+		return img;
+	},
+	doorFrame: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/doorframe.jpg';
+		return img;
+	},
+	doorFrame2: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/doorframe2.jpg';
+		return img;
+	},
+	doorFrame3: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/doorframe3.jpg';
+		return img;
+	},
+	doorFrameBack: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/doorframe-back.png';
+		return img;
+	},
+	doorFrameBack2: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/doorframe-back2.png';
+		return img;
+	},
+	doorFrameBack3: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/doorframe-back3.png';
+		return img;
+	},
+	photoFrame: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/photo frame.png';
+		return img;
+	},
+	note: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/note.png';
+		return img;
+	},
+	sea: function(){
+		var img = document.createElement('img');
+		img.src = 'imgs/sea.png';
+		return img;
+	}
+};
+//preload imagess by calling the function on the var img object
+var preloadImgs = function(){
+	Object.values(imgs).map(value => {
+		if(typeof value === 'function') {
+			value.call();
+		}
+	});
+};
+//audio
+var sounds = {
+	music: function(){
+		var sound = new Audio('audio/music.mp3');
+		return sound;
+	},
+	forrest: function(){
+		var sound = new Audio('audio/forrest.mp3');
+		sound.loop = true;
+		return sound;
+	}
+}
+var audioPlayer = {
+	playNloop: function(sound){
+		sound.loop = true;
+		sound.play();
+	},
+	fadeIn: function(sound, loop){
+		if(loop==true){
+			sound.loop = true;
+		}
+		sound.play();
+		sound.volume = 0;
+		var fadeInt = setInterval(function(){
+			if (sound.volume <0.6){
+				sound.volume += 0.001;
+			} else {
+				clearInterval(fadeInt);
+			}
+		},30);
+	}
+}
+//general mouse input
+var mouseEvents = function(){
+	window.addEventListener('mousedown',function(e){
+		MousePos.held = true;
+		MousePos.clickOrDrag = 'click';
+		MousePos.mouseXInitial = MousePos.mouseX;
+	});
+	window.addEventListener('mouseup',function(e){
+		MousePos.held = false;
+	});
+	window.addEventListener('mousemove',function(e){
+		MousePos.clickOrDrag = 'drag';
+		MousePos.mouseX = e.clientX;
+		MousePos.mouseY = e.clientY;
+	});
+};
+mouseEvents();
+
+var playerCharacter;
+//public object
+var Resizing = {
+	originalHeight: null,
+	originalWidth: null,
+	originalY: null,
+	originalX: null,
+	calculateSize: function(){
+		this.originalHeight = canvas.height/this.h;
+		this.originalWidth = canvas.height/this.w;
+		this.originalY = canvas.height/this.y;
+		this.originalX = canvas.height/this.x;
+	},
+	resize: function(){
+		this.h = canvas.height/this.originalHeight;
+		this.y = canvas.height/this.originalY;
+		this.x = canvas.height/this.originalX;
+	},
+	resizeWidth: function(){
+		if(typeof this.fill == 'object'){
+			if(this.atlas) this.w = this.h * this.frameW / this.frameH;
+			else this.w = this.h * this.fill.width / this.fill.height;
+		} else {
+			this.w = canvas.height / this.originalWidth;
+		}
+	},
+}
+//public object
+var Shared = Object.assign(Object.create(Resizing),{
+	cachedX: 0,
+	collisionComponents: [],
+	scrolling: function(){
+		if (this.held){
+			//actors scrolling
+			if (!this.isCharacterClass){
+				this.scrolledAmount = this.mouseX - this.mouseXInitial;
+				this.x = this.xInitial + (this.scrolledAmount*this.z);
+			}
+			//starting line for all actors
+			if (this.x > this.cachedX && this != birds && this!= startLine && !this.isCharacterClass){
+				this.x = this.cachedX;
+			}
+			//characters scrolling
+			if (startLine.x < startLine.cachedX && this.isCharacterClass){
+				this.scrolledAmount = this.mouseX - this.mouseXInitial;
+				this.x = this.xInitial + (this.scrolledAmount*this.z);
+			}
+		}
+	},
+	inputShared: function(){
+		this.cachedX = this.x;
+		this.calculateSize();
+		this.resizeWidth();
+		var that = this;
+		//resize
+		window.addEventListener('resize',function(){
+			sizeCanvas();
+			that.resize();
+			that.resizeWidth();
+		});
+		//scrolling
+		window.addEventListener('mousedown',function(e){
+			that.xInitial = that.x;
+		});
+
+		window.addEventListener('mousemove',function(e){
+			that.scrolling();
+		});
+
+		window.addEventListener('mouseup',function(e){
+			if (startLine.x > startLine.cachedX + 5){
+				startLine.x = startLine.cachedX;
+			}
+		});
+	},
+	updateShared: function(){
+		this.animation();
+	},
+	animation: function(){},
+	input: function(){},
+	//animations
+	fadeOut: function(val,speed){
+		if(speed == 'fast') speed = 0.005;
+		if(speed == 'slow') speed = 0.0005;
+		if (this.opacity <= val || this.opacity < 0.02){
+			this.opacity = val;
+		} else {
+			this.opacity -= speed * delta;
+		}
+	},
+	fadeIn: function(val,speed){
+		if(speed == 'fast') speed = 0.005;
+		if(speed == 'slow') speed = 0.0005;
+		if (this.opacity >= val){
+			this.opacity = val;
+		} else {
+			this.opacity += speed * delta;
+		}
+	},
+	//flipbook
+	frame: 0,
+	frameLength: 1,
+	flipbook: function(frameLength, framesArr, loop){
+		if (loop == undefined) {loop = true;}; //default value
+
+		this.frameLength++;
+		if (this.frameLength >= frameLength){
+		this.frame++;
+			this.frameLength = 1;
+		}
+		//loop
+		this.framesArr = framesArr;
+		if (loop && this.frame >= this.framesArr.length){
+			this.frame = 0;
+		}
+		//animation
+		for (var i=0; i<this.framesArr.length; i++){
+			if(this.frame == i){
+				this.fill = this.framesArr[i];
+			}
+		}
+	}
+});
+//public object
+var MousePos = Object.assign(Object.create(Shared),{
+	clickOrDrag: 0,
+	held: false,
+	mouseXInitial: null,
+	mouseX: null,
+	mouseY: null,
+	scrolledAmount: null
+});
+//classes
+var classes = {};
+classes.Character = function(fill,x,y,w,h,z,atlas){
+	this.isCharacterClass = true;
+	this.fill = fill;
+	this.x = x;
+	this.y = y;
+	this.w = w;
+	this.h = h;
+	this.z = z;
+	this.direction = 'right';
+	if(atlas){
+		this.atlas = atlas;
+		this.frame = 0;
+		this.frameW = this.atlas[0].w;
+		this.frameH = this.atlas[0].h;
+	}
+	this.opacity = 1;
+	this.speed = canvas.height/6000;
+	this.target = null;
+	this.playerController = false;
+	//collisions
+	this.collisionFromRight = false;
+	this.collisionFromLeft = false;
+	this.collisionVertical = false;
+	this.collidedElement = 0;
+}
+classes.Actor = function(fill,x,y,w,h,z){
+	this.fill = fill;
+	this.x = x;
+	this.y = y;
+	this.w = w;
+	this.h = h;
+	this.z = z;
+	this.opacity = 1;
+	this.transparencyMode = null;
+}
+classes.Highlighter = function(fill,x,y,w,h,z,){
+	classes.Actor.call(this,fill,x,y,w,h,z);
+	this.w = ch/40;
+	this.h = ch/40;
+	this.lineWidth = 5;
+	this.opacity = 1;
+	this.clickable = true;
+	this.clickMode = 'single';
+	this.clicked = false;
+	this.clickNum = 1;
+	this.clicker = null;
+}
+classes.CollisionBox = function(fill,x,y,w,h,z){
+	classes.Actor.call(this,fill,x,y,w,h,z);
+	this.opacity = 0;
+}
+classes.Text = function(x, y, z,text){
+	this.x = x;
+	this.y = y;
+	this.z = z;
+	this.fill = 'white';
+	this.align = 'center';
+	this.fontSize = '30px';
+	this.fontType = 'Do Hyeon';
+	this.opacity = 1;
+	this.text = text;
+}
+
+//inheritince:
+//CHARACTER and ACTOR and TEXT inherit MOUSEPOS. MOUSEPOS inherits SHARiED. SHARED inherits RESIZING
+classes.Character.prototype = Object.create(MousePos);
+classes.Actor.prototype = Object.create(MousePos);
+classes.Text.prototype = Object.create(MousePos);
+//HIGHLIGHTER and COLLISIONBOX inherit ACTOR and its arguments
+classes.Highlighter.prototype = Object.create(classes.Actor.prototype);
+classes.CollisionBox.prototype = Object.create(classes.Actor.prototype);
+
+//classes methods
+classes.Character.prototype.switchCharacters = function(){
+	this.playerController = !this.playerController;
+}
+classes.Character.prototype.input = function(){
+	var that = this;
+	window.addEventListener('mouseup',function(e){
+		if (that.clickOrDrag == 'click'){
+			if (that.playerController){
+				that.target = that.mouseXInitial;
+			}
+		}
+		if (that.clickOrDrag == 'drag' && that.target){
+			that.target += that.scrolledAmount;
+		}
+	});
+	//switch between characters
+	window.addEventListener('keyup',function(e){
+		that.switchCharacters();
+	});
+}
+classes.Character.prototype.detectCollisions = function(){
+	if(this.collisionComponents.length <= this.collidedElement){
+		this.collidedElement = 0;
+	}
+	for (var i=0; i<this.collisionComponents.length; i++){
+		//y and z axis collision
+		if(this.y < this.collisionComponents[i].y + this.collisionComponents[i].h &&
+			this.h + this.y > this.collisionComponents[i].y &&
+		this.z == this.collisionComponents[i].z){
+			this.collisionVertical = true;
+		} else {
+			this.collisionVertical = false;
+		}
+		//x axis collision
+
+		if (this.x + this.w >= this.collisionComponents[i].x &&
+			this.x < this.collisionComponents[i].x &&
+			this.collisionVertical) {
+			this.collisionFromRight = true;
+			this.collidedElement = i;
+
+		} else if (this.x + this.w < this.collisionComponents[this.collidedElement].x ||
+			this.x >= this.collisionComponents[this.collidedElement].x) {
+			this.collisionFromRight = false;
+		}
+
+
+		if (this.x <= this.collisionComponents[i].x + this.collisionComponents[i].w &&
+			this.x > this.collisionComponents[i].x &&
+			this.collisionVertical) {
+			this.collisionFromLeft = true;
+			this.collidedElement = i;
+		} else if (this.x > this.collisionComponents[this.collidedElement].x + 			this.collisionComponents[this.collidedElement].w ||
+			this.x <= this.collisionComponents[this.collidedElement].x) {
+			this.collisionFromLeft = false;
+		}
+	}
+}
+classes.Character.prototype.update = function(){
+	//update speed when resizing
+	if (this.stateMachine){
+		this.stateMachine();
+	}
+
+	if (this.playerController){
+		playerCharacter = this;
+	}
+	//this.speed = canvas.height/350;
+	this.detectCollisions();
+	//move character
+	if (this.target){
+		//moving right
+		if (this.x + this.w/2 < this.target && !this.collisionFromRight){
+			this.x += this.speed * delta;
+			this.state = 'walkingRight';
+			this.direction = 'right'
+		}
+		//moving left
+		if (this.x + this.w/2 > this.target && !this.collisionFromLeft){
+			this.x -= this.speed * delta;
+			this.state = 'walkingLeft';
+			this.direction = 'left';
+		}
+		//stopping
+		if (!(this.x + this.w/2 > this.target+10 && !this.collisionFromLeft)&&
+				!(this.x + this.w/2 < this.target-10 && !this.collisionFromRight)){
+			this.target = null;
+		}
+	}
+	else {
+		this.state = 'idle';
+	}
+}
+classes.Character.prototype.draw = function(){
+	ctx.save();
+	ctx.globalAlpha = this.opacity;
+	if(this.atlas){
+		ctx.drawImage(this.fill,this.atlas[this.frame].x,this.atlas[this.frame].y, this.frameW, this.frameH, this.x, this.y, this.w, this.h);
+	} else {
+		ctx.drawImage(this.fill,this.x,this.y, this.w, this.h);
+	}
+	ctx.restore();
+}
+
+classes.Actor.prototype.update = function(){
+}
+classes.Actor.prototype.draw = function(){
+	if (typeof this.fill === 'string'){
+		ctx.save();
+		ctx.beginPath();
+		ctx.globalAlpha = this.opacity;
+		ctx.rect(this.x, this.y, this.w, this.h);
+		ctx.fillStyle = this.fill;
+		ctx.fill();
+		ctx.closePath();
+		ctx.restore();
+	}
+	if (typeof this.fill === 'object'){
+		ctx.save();
+		ctx.globalAlpha = this.opacity;
+		if(this.transparencyMode){
+			ctx.globalCompositeOperation = this.transparencyMode;
+		}
+		ctx.drawImage(this.fill,this.x,this.y, this.w, this.h);
+		ctx.restore();
+	}
+}
+
+classes.Highlighter.prototype.click = function(){
+	if(this.clickable){
+		if (this.mouseXInitial > this.x-this.w &&
+		this.mouseXInitial < this.x + this.w &&
+		this.mouseY > this.y-this.h &&
+		this.mouseY < this.y+this.h){
+			this.clicked = true;
+			this.clicker = playerCharacter;
+		} else if (this.clicker == playerCharacter) {
+			this.clicked = false;
+		}
+	}
+}
+classes.Highlighter.prototype.whenClicked = function(){};
+classes.Highlighter.prototype.whenClicked2 = function(){};
+classes.Highlighter.prototype.input = function(){
+	var that = this;
+	window.addEventListener('mouseup',function(e){
+		if (that.clickOrDrag == 'click'){
+			that.click();
+		}
+	});
+}
+classes.Highlighter.prototype.update = function(){
+	//detect hovering
+	if (this.mouseX > this.x-this.w &&
+	this.mouseX < this.x + this.w &&
+	this.mouseY > this.y-this.h &&
+	this.mouseY < this.y+this.h){
+		//when hovered
+		if(this.lineWidth < 10){
+			this.lineWidth+= 0.5;
+		}
+		//stop fade effect when hovered
+		this.fadeIn(1, 'slow');
+	} else if (!this.clicked) {
+		//when not hovered
+		if(this.lineWidth > 4){
+			this.lineWidth -= 0.5;
+		}
+		//button fade effect
+		this.fadeOut(0.4, 'slow');
+		if(this.opacity==0.4){
+			this.opacity = 1;
+		}
+	}
+	//trigger clicking when character reaches it.
+	if (this.clicked && this.clicker.x < this.x + this.w*4 && this.clicker.x + this.clicker.w > this.x-(this.w*4)){
+		if (this.clickMode == 'single'){
+			this.whenClicked();
+			this.clicked = false;
+		}
+		if (this.clickMode == 'double'){
+			if(this.clickNum == 1){
+				this.whenClicked();
+				this.clickNum++;
+			}
+			else if(this.clickNum==2){
+				this.whenClicked2();
+				this.clickNum = 1;
+			}
+			this.clicked = false;
+		}
+	}
+}
+classes.Highlighter.prototype.draw = function(){
+	ctx.save();
+	ctx.beginPath();
+	ctx.globalAlpha = this.opacity;
+	ctx.arc(this.x, this.y, this.w, 0, 2*Math.PI);
+	ctx.lineWidth= this.lineWidth;
+	ctx.strokeStyle = this.fill;
+	ctx.stroke();
+	ctx.closePath();
+	ctx.restore();
+}
+
+classes.CollisionBox.prototype.enableCollision = function(){
+	this.collisionComponents.push(this);
+}
+classes.CollisionBox.prototype.disableCollision = function(){
+	var index = this.collisionComponents.indexOf(this);
+	if (index > -1) {
+		this.collisionComponents.splice(index, 1);
+	}
+}
+classes.CollisionBox.prototype.input = function(){
+	this.enableCollision();
+}
+classes.CollisionBox.prototype.update = function(){
+}
+classes.CollisionBox.prototype.draw = function(){
+	if (typeof this.fill === 'string'){
+		ctx.save();
+		ctx.beginPath();
+		ctx.globalAlpha = this.opacity;
+		ctx.rect(this.x, this.y, this.w, this.h);
+		ctx.fillStyle = this.fill;
+		ctx.fill();
+		ctx.closePath();
+		ctx.restore();
+	}
+}
+classes.Text.prototype.update = function(){
+}
+classes.Text.prototype.draw = function(){
+	ctx.save();
+	ctx.globalAlpha = this.opacity;
+	ctx.font = this.fontSize + ' ' + this.fontType;
+	ctx.fillStyle = this.fill;
+	ctx.textAlign = this.align;
+	ctx.fillText(this.text,this.x,this.y);
+	ctx.restore();
+}
+</script>
+
+<script src="script.js"></script>
+
+<script>
+//apply/draw everything on the screen
+document.getElementById('begin').addEventListener('click',function(){
+	var apply = {
+		input: function(){
+			for(var i=0; i<allComponents.length; i++){
+				allComponents[i].inputShared();
+				allComponents[i].input();
+			}
+		},
+		update: function(){
+			for(var i=0; i<allComponents.length; i++){
+				allComponents[i].updateShared();
+				allComponents[i].update();
+			}
+		},
+		draw: function(){
+			for(var i=0; i<allComponents.length; i++){
+				allComponents[i].draw();
+			}
+		}
+	}
+	apply.input();
+
+	var gameloop = function(){
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		var currentTime = Date.now();
+		delta = currentTime - lastTime;
+		lastTime = currentTime;
+		apply.update();
+		apply.draw();
+		window.requestAnimationFrame(gameloop);
+	};
+	gameloop();
+});
+</script>
+
+</body>
+</html>
