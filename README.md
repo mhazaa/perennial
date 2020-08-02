@@ -1,5 +1,5 @@
 ### Old project, legacy code
-# perennial
+# Perennial
 http://magdi-hazaa.com/work/perennial/
 
 Point and click game made with JavaScript canvas
